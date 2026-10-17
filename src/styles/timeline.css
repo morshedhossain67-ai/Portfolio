@@ -1,0 +1,92 @@
+/* ---------- Career timeline bar ---------- */
+.span-wrap {
+  padding: 22px 24px;
+  margin-bottom: 40px;
+}
+
+.span-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.span {
+  display: block;
+  width: 100%;
+  height: 34px;
+}
+
+.span-seg {
+  transform-box: fill-box;
+  transform-origin: left;
+  animation: grow-x 1.4s var(--ease) both;
+}
+
+.span-seg--0 { fill: var(--muted); }
+.span-seg--1 { fill: var(--green); animation-delay: 0.3s; }
+.span-seg--2 { fill: var(--accent); animation-delay: 0.6s; }
+
+.span-mark {
+  stroke: var(--paper);
+  stroke-width: 0.3;
+  vector-effect: non-scaling-stroke;
+}
+
+.span-labels-row {
+  display: grid;
+  grid-template-columns: var(--cols, 1fr 1fr 1fr);
+  margin-top: 10px;
+}
+
+.span-label {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  padding: 4px 12px 0 0;
+  line-height: 1.35;
+}
+
+/* Small colour square that matches the bar segment */
+.span-label strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.span-label strong::before {
+  content: '';
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  background: var(--swatch);
+}
+
+.span-label--0 { --swatch: var(--muted); }
+.span-label--1 { --swatch: var(--green); }
+.span-label--2 { --swatch: var(--accent); }
+
+.span-label span {
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+
+.span-label small {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .span-labels-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@keyframes grow-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}

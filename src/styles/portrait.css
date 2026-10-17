@@ -1,0 +1,111 @@
+/* ---------- Hero portrait: offset panel + name plate ---------- */
+.portrait {
+  --plate: 76px;
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1.2;
+  margin: 0;
+}
+
+/* Small solid square peeking out top-left */
+.portrait-block {
+  position: absolute;
+  top: 12%;
+  left: 0;
+  width: 34%;
+  aspect-ratio: 1;
+  background: var(--ink);
+  animation: rise 1s var(--ease) both;
+}
+
+/* Main accent panel, shifted right */
+.portrait-panel {
+  position: absolute;
+  top: 22%;
+  left: 10%;
+  right: 0;
+  bottom: var(--plate);
+  background: var(--accent);
+  animation: rise 1s 0.1s var(--ease) both;
+}
+
+.portrait-img {
+  position: absolute;
+  left: 10%;
+  right: 0;
+  bottom: var(--plate);
+  width: 90%;
+  height: auto;
+  user-select: none;
+  animation: rise 1s 0.2s var(--ease) both;
+}
+
+.portrait-plate {
+  position: absolute;
+  left: 10%;
+  right: 0;
+  bottom: 0;
+  height: var(--plate);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.portrait-plate strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.portrait-plate span {
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Tablet & phone: photo stays beside the name, details flow underneath */
+@media (max-width: 960px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr);
+    grid-template-areas:
+      'head portrait'
+      'body body';
+    column-gap: 20px;
+    align-items: center;
+  }
+  .portrait {
+    max-width: 320px;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-name {
+    font-size: clamp(2.1rem, 9.5vw, 2.8rem);
+  }
+  .hero-tagline {
+    margin-top: 20px;
+  }
+  .portrait {
+    --plate: 0px;
+    aspect-ratio: 1 / 1.15;
+  }
+  .portrait-plate {
+    display: none;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+  .stat--lead {
+    grid-row: auto;
+  }
+}

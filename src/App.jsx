@@ -1,0 +1,37 @@
+import Navbar from './components/layout/Navbar.jsx';
+import Footer from './components/layout/Footer.jsx';
+import Hero from './components/sections/Hero.jsx';
+import About from './components/sections/About.jsx';
+import Expertise from './components/sections/Expertise.jsx';
+import Experience from './components/sections/Experience.jsx';
+import Education from './components/sections/Education.jsx';
+import Publications from './components/sections/Publications.jsx';
+import Contact from './components/sections/Contact.jsx';
+
+export const NAV = [
+  { id: 'about', label: 'About' },
+  { id: 'expertise', label: 'Expertise' },
+  { id: 'experience', label: 'Career' },
+  { id: 'education', label: 'Education' },
+  { id: 'publications', label: 'Publications' },
+  { id: 'contact', label: 'Contact' },
+];
+
+export default function App() {
+  return (
+    <>
+      <a className="skip-link" href="#main">Skip to content</a>
+      <Navbar items={NAV} />
+      <main id="main">
+        <Hero />
+        <About />
+        <Expertise />
+        <Experience />
+        <Education />
+        <Publications />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}

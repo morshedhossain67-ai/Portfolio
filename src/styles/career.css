@@ -1,0 +1,62 @@
+/* ---------- Career ledger ---------- */
+.ledger-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 28px 0;
+}
+
+.ledger-date {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.ledger-to {
+  color: var(--muted);
+}
+
+.ledger-dur {
+  margin-top: 10px;
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 0;
+  background: var(--box-bg);
+  color: var(--box-fg);
+  font-size: 0.85rem;
+}
+
+.ledger-body h3 {
+  font-size: var(--step-2);
+}
+
+.ledger-org {
+  margin: 4px 0 14px;
+  color: var(--green);
+}
+
+.ledger-points {
+  display: grid;
+  gap: 8px;
+}
+
+.ledger-points li {
+  color: var(--ink-2);
+}
+
+@media (max-width: 720px) {
+  .ledger-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .ledger-date {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    align-items: center;
+  }
+  .ledger-dur {
+    margin-top: 0;
+  }
+}

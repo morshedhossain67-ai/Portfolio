@@ -1,0 +1,147 @@
+.pub-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 18px;
+  padding: 16px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 260px;
+  padding: 0 14px;
+  height: 44px;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--muted);
+}
+
+.pub-tools .chips {
+  order: 3;
+  flex-basis: 100%;
+}
+
+.search:focus-within {
+  border-color: var(--accent);
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.pub-count {
+  margin: 20px 0 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.pub-year {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.pub-year-label {
+  position: sticky;
+  top: calc(var(--nav-h) + 20px);
+  align-self: start;
+  font-size: var(--step-3);
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.pub-list {
+  display: grid;
+  gap: 6px;
+}
+
+.pub {
+  padding: 16px 18px;
+  border: 1px solid transparent;
+}
+
+.pub-type {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.pub-type--book { color: var(--gold); }
+.pub-type--thesis,
+.pub-type--conference { color: var(--accent); }
+
+.pub-title {
+  margin: 6px 0;
+  font-size: var(--step-1);
+  font-weight: 500;
+}
+
+.pub-authors {
+  margin: 0 0 4px;
+  font-size: 0.92rem;
+  color: var(--ink-2);
+}
+
+.pub-authors strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.pub-venue {
+  margin: 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.pub-doi {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 10px;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.74rem;
+  color: var(--accent);
+}
+
+.pub-more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.empty {
+  padding: 48px 0;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .pub-year {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .pub-year-label {
+    position: static;
+  }
+}

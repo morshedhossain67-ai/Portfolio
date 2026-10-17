@@ -1,0 +1,61 @@
+/* ---------- Hover: one solid colour swap, no movement, no glow ---------- */
+.btn,
+.icon-btn,
+.chip--btn,
+.nav-links a,
+.nav-cv,
+.partners a,
+.comp,
+.stat,
+.fact,
+.edu-step,
+.pub,
+.refs li {
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn--ghost:hover,
+.icon-btn:hover,
+.chip--btn:hover,
+.nav-links a:hover,
+.nav-cv:hover,
+.partners a:hover,
+.comp:hover,
+.stat:hover,
+.fact:hover,
+.edu-step:hover,
+.pub:hover,
+.refs li:hover {
+  background: var(--hover-bg);
+  border-color: var(--hover-bg);
+  color: var(--hover-fg);
+}
+
+/* Filled buttons switch to the second hover colour so the change is visible */
+.btn--primary:hover,
+.chip--btn.is-active:hover,
+.nav-links a.is-active:hover {
+  background: var(--hover-bg-2);
+  border-color: var(--hover-bg-2);
+  color: var(--hover-fg);
+}
+
+/* Every piece of text inside a hovered card turns white */
+.comp:hover *,
+.stat:hover *,
+.fact:hover *,
+.edu-step:hover *,
+.pub:hover *,
+.refs li:hover * {
+  color: var(--hover-fg);
+}
+
+.fact:hover .meter-track,
+.fact:hover .ys-off {
+  fill: rgba(255, 255, 255, 0.25);
+}
+
+.fact:hover .meter-fill,
+.fact:hover .ys-on {
+  fill: #fff;
+}

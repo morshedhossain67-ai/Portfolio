@@ -1,0 +1,101 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: 0;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+  transform: none;
+}
+
+.btn--primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--rule);
+  color: var(--ink);
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.icon-btn--label {
+  display: inline-flex;
+  gap: 8px;
+  width: auto;
+  padding: 0 16px;
+  border-radius: 0;
+  font-size: var(--step--1);
+  white-space: nowrap;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 0;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: var(--step--1);
+  color: var(--ink-2);
+  line-height: 1.4;
+}
+
+.chips--mono .chip {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.chip--btn {
+  cursor: pointer;
+}
+
+.chip--btn.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.chip-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  opacity: 0.7;
+}
+
+.icon {
+  flex-shrink: 0;
+}

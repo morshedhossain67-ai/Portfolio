@@ -1,0 +1,59 @@
+/* ---------- Publication key facts ---------- */
+.pub-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.fact--wide {
+  grid-column: 1 / -1;
+}
+
+.fact-num {
+  font-family: var(--font-serif);
+  font-size: var(--step-3);
+  line-height: 1;
+  color: var(--accent);
+}
+
+.fact-label {
+  font-size: 0.95rem;
+  color: var(--ink-2);
+}
+
+.fact-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.meter,
+.year-strip {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.meter {
+  height: 6px;
+}
+
+.meter-track { fill: var(--rule-soft); }
+.meter-fill { fill: var(--accent); }
+
+.ys-on { fill: var(--accent); }
+.ys-off { fill: var(--rule-soft); }
+
+@media (max-width: 420px) {
+  .pub-facts {
+    grid-template-columns: 1fr;
+  }
+}

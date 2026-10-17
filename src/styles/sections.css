@@ -1,0 +1,92 @@
+.section-lede {
+  margin-top: 18px;
+  font-size: var(--step-1);
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+
+/* ---------- About ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+
+.about-text {
+  font-size: var(--step-1);
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.dropcap::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 4.4em;
+  line-height: 0.82;
+  padding: 0.08em 0.1em 0 0;
+  color: var(--accent);
+}
+
+.about-aside {
+  padding: 28px;
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+}
+
+.aside-title,
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.aside-title:not(:first-child) {
+  margin-top: 24px;
+}
+
+/* ---------- Expertise ---------- */
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.comp {
+  padding: 26px 24px;
+}
+
+.comp h3 {
+  font-size: var(--step-1);
+  margin: 0 0 10px;
+}
+
+.comp p {
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--ink-2);
+}
+
+.tag-panels {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+@media (max-width: 960px) {
+  .about-grid,
+  .tag-panels {
+    grid-template-columns: 1fr;
+  }
+  .about-aside {
+    position: static;
+  }
+}
