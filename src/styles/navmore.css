@@ -1,0 +1,46 @@
+/* ---------- Hamburger menu (phones only) ---------- */
+.nav-more {
+  position: relative;
+  display: none;
+}
+
+.nav-more-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.nav-more-btn[aria-expanded='true'],
+.nav-more-btn.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.nav-more-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 60;
+  min-width: 170px;
+  padding: 6px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.nav-more-menu a {
+  display: block;
+  padding: 10px 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-more-menu a.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}

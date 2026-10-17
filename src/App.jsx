@@ -8,12 +8,13 @@ import Education from './components/sections/Education.jsx';
 import Publications from './components/sections/Publications.jsx';
 import Contact from './components/sections/Contact.jsx';
 
+// `primary` links stay visible on phones; the rest go under the hamburger.
 export const NAV = [
-  { id: 'about', label: 'About' },
+  { id: 'about', label: 'About', primary: true },
   { id: 'expertise', label: 'Expertise' },
-  { id: 'experience', label: 'Career' },
+  { id: 'experience', label: 'Career', primary: true },
   { id: 'education', label: 'Education' },
-  { id: 'publications', label: 'Publications' },
+  { id: 'publications', label: 'Research', primary: true },
   { id: 'contact', label: 'Contact' },
 ];
 

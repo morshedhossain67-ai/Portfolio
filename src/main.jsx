@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './styles/tokens.css';
 import './styles/base.css';
 import './styles/ui.css';
+import './styles/navmore.css';
 import './styles/layout.css';
 import './styles/hero.css';
 import './styles/portrait.css';
