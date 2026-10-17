@@ -16,6 +16,8 @@ import './styles/education.css';
 import './styles/publications.css';
 import './styles/contact.css';
 import './styles/hover.css';
+import './styles/admin.css';
+import './styles/loader.css';
 import { applyInitialTheme } from './hooks/useTheme.js';
 import App from './App.jsx';
 

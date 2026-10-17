@@ -1,11 +1,15 @@
 // Single source of truth for browser security policy (used by Vite + Express).
+// Supabase (content, login, file storage) is the only outside host allowed.
+const SUPABASE = 'https://*.supabase.co';
+const SUPABASE_WS = 'wss://*.supabase.co';
+
 export const CSP_DIRECTIVES = {
   'default-src': ["'self'"],
   'script-src': ["'self'"],
   'style-src': ["'self'"],
-  'img-src': ["'self'", 'data:'],
+  'img-src': ["'self'", 'data:', 'blob:', SUPABASE],
   'font-src': ["'self'"],
-  'connect-src': ["'self'"],
+  'connect-src': ["'self'", SUPABASE, SUPABASE_WS],
   'object-src': ["'none'"],
   'base-uri': ["'self'"],
   'form-action': ["'self'", 'mailto:'],

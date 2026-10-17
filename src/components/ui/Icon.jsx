@@ -21,6 +21,12 @@ const PATHS = {
   facebook: 'M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z',
   linkedin: 'M4 4h16v16H4z M8 10v6 M8 7v.01 M12 16v-6 M12 13a2 2 0 0 1 4 0v3',
   research: 'M4 4h16v16H4z M8 16V8h3a2 2 0 0 1 0 4H8 M10.5 12l2 4 M18 9.5a2.5 2.5 0 1 0 0 5h0v-2h-1.5',
+  up: 'M6 15l6-6 6 6',
+  down: 'M6 9l6 6 6-6',
+  trash: 'M4 7h16 M9 7V4h6v3 M6 7l1 13h10l1-13 M10 11v6 M14 11v6',
+  edit: 'M4 20h4L19 9l-4-4L4 16z M13 7l4 4',
+  lock: 'M6 11h12v9H6z M8 11V8a4 4 0 0 1 8 0v3',
+  logout: 'M10 4H4v16h6 M15 8l4 4-4 4 M19 12H9',
   whatsapp: 'M4 20l1.4-4.2A8 8 0 1 1 8.4 19z M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 1a5 5 0 0 1-3-3l1-1-1-2z',
 };
 

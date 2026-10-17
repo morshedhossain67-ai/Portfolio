@@ -1,14 +1,16 @@
 import { useMemo } from 'react';
-import { publications } from '../../data/publications.js';
+import { usePublicationList } from '../../content/hooks.js';
 
 const W = 520;
 const H = 260;
 const PAD = { l: 34, r: 14, t: 18, b: 30 };
 
-// Economist-style "Fig. 1": publications per year (bars) + cumulative (line).
+// Publications per year (bars) + cumulative (line).
 export default function IndicatorChart() {
-  const { bars, line, ticks, maxCount, total, first, last } = useMemo(() => {
+  const publications = usePublicationList();
+  const chart = useMemo(() => {
     const years = publications.map((p) => p.year).filter(Boolean);
+    if (!years.length) return null;
     const first = Math.min(...years);
     const last = Math.max(...years);
     const span = last - first + 1;
@@ -29,8 +31,10 @@ export default function IndicatorChart() {
     });
     const ticks = bars.filter((b) => b.key % 5 === 0 || b.key === first);
     return { bars, line: pts.join(' '), ticks, maxCount, total, first, last };
-  }, []);
+  }, [publications]);
 
+  if (!chart) return <p className="empty">No dated publications yet.</p>;
+  const { bars, line, ticks, maxCount, total, first, last } = chart;
   const base = H - PAD.b;
 
   return (

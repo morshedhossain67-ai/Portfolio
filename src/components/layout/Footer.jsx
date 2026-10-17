@@ -1,7 +1,8 @@
-import { profile } from '../../data/profile.js';
+import { useProfile } from '../../content/hooks.js';
 import SafeLink from '../ui/SafeLink.jsx';
 
 export default function Footer() {
+  const profile = useProfile();
   return (
     <footer className="footer">
       <div className="container footer-inner">

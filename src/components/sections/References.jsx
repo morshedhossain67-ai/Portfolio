@@ -1,12 +1,14 @@
-import { references } from '../../data/references.js';
+import { useReferences } from '../../content/hooks.js';
 
 export default function References() {
+  const references = useReferences();
+  if (!references.length) return <div />;
   return (
     <div className="refs">
       <h3 className="panel-title">Referees</h3>
       <ul>
-        {references.map((r) => (
-          <li key={r.name}>
+        {references.map((r, i) => (
+          <li key={`${r.name}-${i}`}>
             <strong>{r.name}</strong>
             <span>{r.role}</span>
             <small>{r.note}</small>

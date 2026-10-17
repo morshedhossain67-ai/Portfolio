@@ -4,9 +4,10 @@ import ThemeToggle from './ThemeToggle.jsx';
 import NavMore from './NavMore.jsx';
 import Icon from '../ui/Icon.jsx';
 import SafeLink from '../ui/SafeLink.jsx';
-import { profile } from '../../data/profile.js';
+import { useProfile } from '../../content/hooks.js';
 
 export default function Navbar({ items }) {
+  const profile = useProfile();
   const ids = useMemo(() => items.map((i) => i.id), [items]);
   const secondary = useMemo(() => items.filter((i) => !i.primary), [items]);
   const active = useActiveSection(ids);

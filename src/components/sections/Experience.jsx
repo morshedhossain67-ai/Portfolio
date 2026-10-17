@@ -1,28 +1,33 @@
-import { experience } from '../../data/experience.js';
+import { useExperience } from '../../content/hooks.js';
 import { formatMonth, yearOf, yearsBetween } from '../../utils/format.js';
 import Section from '../ui/Section.jsx';
 import CareerSpan from './CareerSpan.jsx';
 import CareerLabels from './CareerLabels.jsx';
 
 export default function Experience() {
-  const first = yearOf(experience[experience.length - 1].from);
+  const experience = useExperience();
+  const oldestFirst = [...experience].reverse();
+
   return (
     <Section
       id="experience"
       title="Career"
+      edit={[{ key: 'experience', label: 'Edit career' }]}
     >
-      <div className="span-wrap card">
-        <div className="span-labels">
-          <span>{first}</span>
-          <span>Today</span>
+      {experience.length > 0 && (
+        <div className="span-wrap card">
+          <div className="span-labels">
+            <span>{yearOf(oldestFirst[0].from)}</span>
+            <span>Today</span>
+          </div>
+          <CareerSpan items={oldestFirst} />
+          <CareerLabels items={oldestFirst} />
         </div>
-        <CareerSpan />
-        <CareerLabels />
-      </div>
+      )}
 
       <ol className="ledger">
-        {experience.map((e) => (
-          <li key={e.from} className="ledger-row">
+        {experience.map((e, i) => (
+          <li key={`${e.from}-${i}`} className="ledger-row">
             <div className="ledger-date">
               <span>{formatMonth(e.from)}</span>
               <span className="ledger-to">{formatMonth(e.to)}</span>
@@ -32,8 +37,8 @@ export default function Experience() {
               <h3>{e.role}</h3>
               <p className="ledger-org">{e.org}</p>
               <ul className="ledger-points">
-                {e.points.map((p) => (
-                  <li key={p}>{p}</li>
+                {e.points.map((p, j) => (
+                  <li key={j}>{p}</li>
                 ))}
               </ul>
             </div>

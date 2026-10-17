@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { publications } from '../../data/publications.js';
 import { usePublications } from '../../hooks/usePublications.js';
 import Section from '../ui/Section.jsx';
 import PubOverview from './PubOverview.jsx';
 import PubFilters from './PubFilters.jsx';
 import PubItem from './PubItem.jsx';
 import Button from '../ui/Button.jsx';
-import { profile } from '../../data/profile.js';
+import { useProfile, usePublicationList } from '../../content/hooks.js';
 
 const INITIAL_GROUPS = 5;
-const researchGate = profile.social.find((s) => s.label === 'ResearchGate')?.href;
 
 export default function Publications() {
+  const publications = usePublicationList();
+  const researchGate = useProfile().social?.find((s) => s.label === 'ResearchGate')?.href;
   const state = usePublications(publications);
   const [expanded, setExpanded] = useState(false);
   const { entries, total } = state.groups;
@@ -22,6 +22,7 @@ export default function Publications() {
     <Section
       id="publications"
       title="Research"
+      edit={[{ key: 'publications', label: 'Edit publications' }]}
     >
       <PubOverview />
       <PubFilters {...state} />
@@ -53,7 +54,9 @@ export default function Publications() {
             {expanded ? 'Show fewer' : `Show all ${publications.length} works`}
           </button>
         )}
-        <Button href={researchGate} variant="ghost" icon="ext">View on ResearchGate</Button>
+        {researchGate && (
+          <Button href={researchGate} variant="ghost" icon="ext">View on ResearchGate</Button>
+        )}
       </div>
     </Section>
   );

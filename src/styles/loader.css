@@ -1,0 +1,86 @@
+/* ---------- Loading screen ---------- */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  color: var(--ink);
+  transition: opacity 0.45s ease, visibility 0.45s;
+}
+
+.loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.is-loading {
+  overflow: hidden;
+}
+
+.loader-inner {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 24px;
+  text-align: center;
+  animation: loader-in 0.5s ease both;
+}
+
+.loader-hon {
+  margin: 0;
+  color: var(--accent);
+  font-size: var(--step-0);
+}
+
+.loader-name {
+  margin: 0 0 22px;
+  font-size: var(--step-3);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.loader-name span {
+  color: var(--accent);
+}
+
+/* Three small squares lighting up in turn: navy, rust, navy */
+.loader-cubes {
+  display: flex;
+  gap: 10px;
+}
+
+.loader-cubes i {
+  width: 12px;
+  height: 12px;
+  background: var(--ink);
+  opacity: 0.18;
+  animation: loader-cube 1.2s ease-in-out infinite;
+}
+
+.loader-cubes i:nth-child(2) {
+  background: var(--accent);
+  animation-delay: 0.2s;
+}
+
+.loader-cubes i:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loader-cube {
+  0%, 100% { opacity: 0.18; }
+  40% { opacity: 1; }
+}
+
+@keyframes loader-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-cubes i {
+    animation: none;
+    opacity: 0.6;
+  }
+}

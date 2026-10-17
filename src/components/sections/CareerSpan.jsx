@@ -1,12 +1,10 @@
-import { experience } from '../../data/experience.js';
 import { yearOf } from '../../utils/format.js';
 
 // Proportional timeline of the whole career, drawn as SVG (no inline CSS needed).
-export default function CareerSpan() {
-  const items = [...experience].reverse();
+export default function CareerSpan({ items }) {
   const start = yearOf(items[0].from);
-  const end = new Date().getFullYear();
-  const scale = (y) => ((y - start) / (end - start)) * 100;
+  const end = Math.max(start + 1, new Date().getFullYear());
+  const scale = (y) => ((Math.min(y, end) - start) / (end - start)) * 100;
   const marks = [];
   for (let y = Math.ceil(start / 5) * 5; y < end; y += 5) marks.push(y);
 
@@ -15,9 +13,9 @@ export default function CareerSpan() {
       aria-label={`Career timeline from ${start} to present`}>
       {items.map((e, i) => {
         const x = scale(yearOf(e.from));
-        const w = scale(yearOf(e.to)) - x;
+        const w = Math.max(scale(yearOf(e.to)) - x, 0.5);
         return (
-          <rect key={e.from} className={`span-seg span-seg--${i}`} x={x} y="2" width={w} height="6">
+          <rect key={`${e.from}-${i}`} className={`span-seg span-seg--${i % 3}`} x={x} y="2" width={w} height="6">
             <title>{`${e.role}, ${yearOf(e.from)}-${e.to ? yearOf(e.to) : 'present'}`}</title>
           </rect>
         );

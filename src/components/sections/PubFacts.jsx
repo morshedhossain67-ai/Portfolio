@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { publications } from '../../data/publications.js';
+import { usePublicationList } from '../../content/hooks.js';
 
 const SOLO = /^(Dr\.\s)?(Md\.\s)?Morshed Hossain$/;
 
@@ -34,8 +34,10 @@ function YearStrip({ years, first, last }) {
 }
 
 export default function PubFacts() {
+  const publications = usePublicationList();
   const d = useMemo(() => {
     const list = publications.map((p) => p.year).filter(Boolean);
+    if (!publications.length || !list.length) return null;
     return {
       total: publications.length,
       journal: publications.filter((p) => p.type === 'journal').length,
@@ -44,8 +46,9 @@ export default function PubFacts() {
       first: Math.min(...list),
       last: Math.max(...list),
     };
-  }, []);
+  }, [publications]);
 
+  if (!d) return null;
   return (
     <div className="pub-facts">
       <div className="fact fact--wide">
