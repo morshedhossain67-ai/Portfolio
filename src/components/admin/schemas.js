@@ -1,3 +1,5 @@
+import { ADMIN_GROUPS } from '../../data/administration.js';
+
 // What the admin can edit, per content section. Field types:
 // text | textarea | url | email | date | select | strings | list | file
 const TYPES = ['journal', 'book', 'conference', 'article', 'thesis'];
@@ -62,6 +64,19 @@ export const SCHEMAS = {
         f('from', 'Start date', 'date'),
         f('to', 'End date (leave empty if current)', 'date'),
         f('points', 'Responsibilities', 'strings', { multiline: true, item: 'point' }),
+      ],
+    },
+  },
+  administration: {
+    title: 'Administration',
+    list: {
+      item: 'role', summary: 'role',
+      fields: [
+        f('group', 'Category', 'select', { options: ADMIN_GROUPS }),
+        f('role', 'Role / position'),
+        f('org', 'Organisation'),
+        f('periods', 'Terms (e.g. Jun 2023 \u2013 Jun 2025, or "Aug 2009 \u2013 Present")', 'strings', { item: 'term' }),
+        f('note', 'Note (optional, e.g. ISSN)'),
       ],
     },
   },

@@ -1,0 +1,167 @@
+/* ---------- Administration ---------- */
+.adm-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 0 28px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.adm-facts > div {
+  padding: 18px 20px;
+  border-left: 1px solid var(--rule);
+}
+
+.adm-facts > div:first-child {
+  border-left: 0;
+}
+
+.adm-facts dt {
+  font-size: var(--step-3);
+  line-height: 1;
+  color: var(--accent);
+}
+
+.adm-facts dd {
+  margin: 8px 0 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.adm-filter {
+  margin-bottom: 22px;
+}
+
+.adm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.adm-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px;
+  border-left: 3px solid var(--rule);
+}
+
+.adm-card.is-current {
+  border-left-color: var(--accent);
+}
+
+.adm-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.adm-group {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.adm-badge,
+.adm-terms {
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  letter-spacing: 0.04em;
+}
+
+.adm-badge {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.adm-terms {
+  background: var(--box-bg);
+  color: var(--box-fg);
+}
+
+.adm-card h3 {
+  font-size: var(--step-1);
+  margin: 0;
+}
+
+.adm-org {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+
+.adm-periods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+
+.adm-periods li {
+  padding: 4px 10px;
+  background: var(--paper-2);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+}
+
+.adm-note {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* Hover: one solid colour swap, no movement (matches hover.css) */
+.adm-card,
+.adm-facts > div,
+.adm-periods li {
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.adm-card:hover,
+.adm-facts > div:hover {
+  background: var(--hover-bg);
+  border-color: var(--hover-bg);
+  color: var(--hover-fg);
+}
+
+.adm-card:hover *,
+.adm-facts > div:hover * {
+  color: var(--hover-fg);
+}
+
+.adm-card:hover .adm-periods li {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.adm-card:hover .adm-badge {
+  background: var(--hover-bg-2);
+}
+
+.adm-card:hover .adm-terms {
+  background: var(--hover-fg);
+  color: var(--hover-bg);
+}
+
+@media (max-width: 860px) {
+  .adm-grid {
+    grid-template-columns: 1fr;
+  }
+  .adm-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .adm-facts > div:nth-child(3) {
+    border-left: 0;
+  }
+  .adm-facts > div:nth-child(n + 3) {
+    border-top: 1px solid var(--rule);
+  }
+}

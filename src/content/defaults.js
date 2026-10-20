@@ -6,6 +6,7 @@ import { experience } from '../data/experience.js';
 import { education } from '../data/education.js';
 import { publications } from '../data/publications.js';
 import { references } from '../data/references.js';
+import { administration } from '../data/administration.js';
 
 export const DEFAULTS = {
   profile: { ...profile, photo: '' },
@@ -15,6 +16,7 @@ export const DEFAULTS = {
     software,
   },
   experience,
+  administration,
   education,
   publications: publications.map(({ id, ...rest }) => rest),
   references,

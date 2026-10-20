@@ -4,6 +4,7 @@ import Hero from './components/sections/Hero.jsx';
 import About from './components/sections/About.jsx';
 import Expertise from './components/sections/Expertise.jsx';
 import Experience from './components/sections/Experience.jsx';
+import Administration from './components/sections/Administration.jsx';
 import Education from './components/sections/Education.jsx';
 import Publications from './components/sections/Publications.jsx';
 import Contact from './components/sections/Contact.jsx';
@@ -17,6 +18,7 @@ export const NAV = [
   { id: 'about', label: 'About', primary: true },
   { id: 'expertise', label: 'Expertise' },
   { id: 'experience', label: 'Career', primary: true },
+  { id: 'administration', label: 'Administration' },
   { id: 'education', label: 'Education' },
   { id: 'publications', label: 'Research', primary: true },
   { id: 'contact', label: 'Contact' },
@@ -45,6 +47,7 @@ function Site() {
         <About />
         <Expertise />
         <Experience />
+        <Administration />
         <Education />
         <Publications />
         <Contact />

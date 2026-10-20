@@ -12,6 +12,7 @@ import './styles/facts.css';
 import './styles/sections.css';
 import './styles/timeline.css';
 import './styles/career.css';
+import './styles/administration.css';
 import './styles/education.css';
 import './styles/publications.css';
 import './styles/contact.css';

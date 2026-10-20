@@ -6,7 +6,7 @@
 -- 1. Content: one row per section, stored as JSON.
 create table if not exists public.content (
   key        text primary key check (key in
-               ('profile','expertise','experience','education','publications','references')),
+               ('profile','expertise','experience','administration','education','publications','references')),
   data       jsonb not null,
   updated_at timestamptz not null default now()
 );
@@ -59,6 +59,12 @@ create policy "content delete by admin"
   on public.content for delete
   to authenticated
   using (public.is_admin());
+
+-- Upgrading an existing database? Run these two lines once to allow the
+-- new 'administration' section:
+alter table public.content drop constraint if exists content_key_check;
+alter table public.content add constraint content_key_check check (key in
+  ('profile','expertise','experience','administration','education','publications','references'));
 
 -- No policies on `admins` = nobody can read or change it through the API.
 
